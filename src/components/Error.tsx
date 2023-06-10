@@ -1,7 +1,7 @@
-import useQuoter from "../hooks/useQuoter"
+import useRepo from "../hooks/useRepo"
 
 const Error = () => {
-    const { error } =  useQuoter();
+    const { error } =  useRepo();
 
   return (
     <div>

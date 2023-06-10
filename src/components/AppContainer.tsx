@@ -1,16 +1,20 @@
-import useQuoter from "../hooks/useQuoter";
+import useRepo from "../hooks/useRepo";
 
 import Form from "./Form"
 import Spinner from "./Spinner";
 import Result from "./Result";
 
-const AppInsurance = () => {
-  const {  loading } =  useQuoter();
+const AppContainer = () => {
+  const {  loading } =  useRepo();
+
+  console.log(loading)
 
   return (
     <>
         <header className='my-10'>
-            <h1 className='text-white text-center text-4xl font-black'>Auto Insurance Quoter</h1>
+            <h1 className='text-center text-4xl font-black uppercase'>
+                Github repositories explorer
+            </h1>
         </header>
 
         <main className='bg-white md:2/3 lg:w-2/4 mx-auto shadow rounded-lg p-10'>
@@ -21,4 +25,4 @@ const AppInsurance = () => {
   )
 }
 
-export default AppInsurance
+export default AppContainer
