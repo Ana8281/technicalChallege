@@ -14,7 +14,7 @@ const Result = () => {
 
   return (
     <>
-      {result.map((group: Group) => (
+      { result.map((group: Group) => (
           <ToggleItem title={group.login} key={group.id}>
             <GroupList repos={repos} />
           </ToggleItem>

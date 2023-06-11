@@ -11,9 +11,6 @@ interface Group {
   id: number;
 }
 
-interface Result {
-    items: Group[]; // response items
-}
 
 export interface RepoContextType {
     user: User;
@@ -21,7 +18,7 @@ export interface RepoContextType {
     dataSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
     requestUser: (info: User) => Promise<void>;
     requestRepos: (user: string) => Promise<void>;
-    result: Result | {};
+    result: Group[] | [];
     setError: React.Dispatch<React.SetStateAction<string>>;
     loading: boolean;
     noResult: boolean | string;
@@ -39,7 +36,7 @@ const RepoProvider = ({children}: Props) => {
       name: '',
     })
     const [error, setError] = useState<string>('')
-    const [ result, setResult] = useState<Result | {}>({})
+    const [ result, setResult] = useState<Group[] | []>([])
     const [loading, setLoading] = useState<boolean>(false)
     const [noResult, setNoResult] = useState<boolean | string>(false)
     const [ repos, setRepos] = useState([])
