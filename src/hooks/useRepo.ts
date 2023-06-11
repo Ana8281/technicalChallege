@@ -1,9 +1,8 @@
 import { useContext } from "react"
-
-import RepoContext from "../context/RepoProvider"
+import RepoContext, { RepoContextType } from "../context/RepoProvider"
 
 const useRepo = () => {
-    return useContext(RepoContext);
-} 
+    return useContext(RepoContext) as RepoContextType
+}
 
 export default useRepo

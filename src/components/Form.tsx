@@ -2,11 +2,11 @@ import useRepo from "../hooks/useRepo";
 import Error from "./Error";
 
 const Form = () => {
-    const { user, error, setError, dataSearch, requestData } =  useRepo();
+    const { user, error, setError, dataSearch, requestUser } =  useRepo();
 
    const { name } = user;
 
-    const handleSubmit =(e) => {
+    const handleSubmit =(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (Object.values(user).includes('')) {
@@ -16,7 +16,7 @@ const Form = () => {
 
         setError('')
 
-        requestData(user)
+        requestUser(user)
     }
 
   return (

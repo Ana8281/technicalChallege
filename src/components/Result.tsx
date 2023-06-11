@@ -1,17 +1,25 @@
 import useQuoter from "../hooks/useRepo";
+import ToggleItem from "./ToggleItem";
+import GroupList from "./GroupList";
+
+interface Group {
+  login: string;
+  id: number;
+}
 
 const Result = () => {
-    const { result, user } =  useQuoter();
+  const { result, repos } =  useQuoter();
 
-    
+  if (Object.keys(result).length === 0 ) return null
 
-    console.log(result)
-
-    if (result === 0) return null 
   return (
-    <div className="bg-gray-100 text-center mt5 p-5 shadow">
-      <p className="my-2 text-2xl"><span className="font-bold">Total Quoter: </span></p>
-    </div>
+    <>
+      {result.map((group: Group) => (
+          <ToggleItem title={group.login} key={group.id}>
+            <GroupList repos={repos} />
+          </ToggleItem>
+      ))}
+    </>
   )
 }
 
